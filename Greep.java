@@ -46,7 +46,11 @@ public class Greep extends Creature
             move();
             checkFood();
         }
+        
+        
     }
+    
+    
     
     /**
      * Is there any food here where we are? If so, try to load some!
@@ -60,6 +64,16 @@ public class Greep extends Creature
             // Note: this attempts to load a tomato onto *another* Greep. It won't
             // do anything if we are alone here.
         }
+    }
+    
+    public void senseWater()
+    {
+        
+    }
+    
+    public void getColor()
+    {
+        
     }
 
     /**
