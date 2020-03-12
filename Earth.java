@@ -57,6 +57,7 @@ public class Earth extends World
     {
         Color col = map.getColorAt(x, y);
         return col.getBlue() > (col.getRed() * 2);
+        
     }
     
     /**

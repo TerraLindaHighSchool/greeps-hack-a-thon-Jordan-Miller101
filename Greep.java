@@ -3,7 +3,7 @@ import greenfoot.*;
 /**
  * A Greep is an alien creature that likes to collect tomatoes.
  * 
- * @author (your name here)
+ * @author Greeps Group 5 
  * @version 0.2
  */
 public class Greep extends Creature
@@ -34,22 +34,53 @@ public class Greep extends Creature
     {
         super.act();   // do not delete! leave as first statement in act().
         if (carryingTomato()) {
-            if (atShip()) {
-                dropTomato();
-            }
-            else {
-                turnHome();
+            spit("red"); 
+          if(atWater() )
+          {
+              turn(60);
+              move();
+          }
+      
+        if (atShip()) {
+            dropTomato();
+        }
+        else {
+            turnHome();
+            move();
+            
+            if(atWater() )
+            {
+                turn(75);
                 move();
             }
+            
+        }
+        
         }
         else {
             move();
             checkFood();
+            if(atWater() || isAtEdge())
+            {
+                spit("orange");
+                turn(75);
+                move(2);
+            }
+            
+            if(isTouching(Greep.class))
+            {
+                move();
+            }
         }
-        
-        
     }
     
+    public void seeRed()
+    {
+        if(seePaint("red"))
+        {
+            
+        }
+    }
     
     
     /**
@@ -63,19 +94,15 @@ public class Greep extends Creature
             loadTomato();
             // Note: this attempts to load a tomato onto *another* Greep. It won't
             // do anything if we are alone here.
+            spit("red");
         }
-    }
+        else {
+            move();
+        }
+    } 
     
-    public void senseWater()
-    {
-        
-    }
     
-    public void getColor()
-    {
-        
-    }
-
+    
     /**
      * This method specifies the name of the author (for display on the result board).
      */
